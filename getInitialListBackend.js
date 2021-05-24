@@ -93,11 +93,9 @@ class GetInitialListBackend {
             curr_iss_amt: Number(r.cell.curr_iss_amt),
             dblow: Number(r.cell.dblow),
           }
-        }).filter(r => r)
-        // 根据价格排序整个列表
-        const sortedByPrice = sortByPrice(items)
-        const midPrice = findMidPrice(sortedByPrice)
-
+        })
+        // 获取中间值
+        const midPrice = findMidPrice(sortByPrice(items))
         console.log(`Mid-price is ${midPrice}`)
 
         // 根据双低排序整个列表
@@ -115,7 +113,7 @@ class GetInitialListBackend {
         itemsFiltered = sortByCurrIssAmt(itemsFiltered)
         // 获取最大数量
         itemsFiltered = itemsFiltered.splice(0, itemsFiltered.length > maxPickCount ? maxPickCount : itemsFiltered.length)
-        // 根据双低再排序？
+        // 根据双低再排序便于展示
         itemsFiltered = sortByDBlow(itemsFiltered)
         saveToFile(savedFileName, buildCSVContent(itemsFiltered))
         console.log(`Saved to ${savedFileName}!`)
