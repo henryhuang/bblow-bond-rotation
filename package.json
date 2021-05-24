@@ -1,0 +1,19 @@
+{
+  "name": "convertible-bond",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "new-list": "node getInitialListBackend.js",
+    "compare": "node compareLists.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "csvtojson": "^2.0.10",
+    "form-data": "^4.0.0"
+  }
+}
