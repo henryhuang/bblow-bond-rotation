@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "new-list": "node getInitialListBackend.js",
-    "compare": "node compareLists.js",
+    "new-list": "node new-list.js",
+    "compare-files": "node compare-files.js",
+    "compare-remote": "node compare-remote.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,8 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
+    "chalk": "^4.1.1",
     "console-table-printer": "^2.9.0",
     "csvtojson": "^2.0.10",
-    "form-data": "^4.0.0"
+    "form-data": "^4.0.0",
+    "moment": "^2.29.1"
   }
 }
