@@ -4,9 +4,10 @@
  */
 const path = require('path')
 const csv = require('csvtojson')
+const { Table } = require("console-table-printer")
 
 const oldFile = path.join(__dirname, 'data', '2021-05-24.csv')
-const newFile = path.join(__dirname, 'data', '2021-05-24-13-49-1.csv')
+const newFile = path.join(__dirname, 'data', 'download', '2021-05-26-20-47-1.csv')
 
 const p1 = csv().fromFile(oldFile)
 const p2 = csv().fromFile(newFile)
@@ -31,6 +32,24 @@ const printItems = (array) => {
   console.log('----------------------------------------')
 }
 
+const print = (left, right) => {
+  let rowNum = left.length > right.length ? left.length : right.length
+  const p = new Table({
+    columns: [
+      { name: '新增', alignment: 'right', color: 'green' },
+      { name: '删除', alignment: 'left', color: 'red' }
+    ],
+  });
+  let i = 0
+  while (i < rowNum) {
+    const leftData = left[i];
+    const rightData = right[i];
+    p.addRow({ '新增': `${leftData['转债名称']} ${leftData['代码']}`, '删除': `${rightData['转债名称']} ${rightData['代码']}`});
+    i ++
+  }
+  p.printTable();
+}
+
 Promise.all([p1, p2]).then(([oldItems, newItems]) => {
   console.log(`old items size is ${oldItems.length}`)
   console.log(`new items size is ${newItems.length}`)
@@ -46,8 +65,9 @@ Promise.all([p1, p2]).then(([oldItems, newItems]) => {
       newAdded.push(newItem)
     }
   })
-  console.log(`old items removed size is ${oldRemoved.length}`)
-  printItems(oldRemoved)
-  console.log(`new items added size is ${newAdded.length}`)
-  printItems(newAdded)
+  // console.log(`old items removed size is ${oldRemoved.length}`)
+  // printItems(oldRemoved)
+  // console.log(`new items added size is ${newAdded.length}`)
+  // printItems(newAdded)
+  print(newAdded, oldRemoved)
 })
