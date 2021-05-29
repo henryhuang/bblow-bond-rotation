@@ -13,7 +13,7 @@ let file = oldFileName
 if (!file) {
   file = getLatestData()
 }
-const oldFile = path.join(__dirname, 'data', file)
+const oldFile = path.join(__dirname, '..', 'data', file)
 
 new GetInitialListBackend({ saveToFile: false })
     .run()
