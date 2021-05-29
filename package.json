@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "new-list": "node new-list.js",
-    "compare-files": "node compare-files.js",
-    "compare-remote": "node compare-remote.js",
+    "new-list": "node interface/new-list.js",
+    "new-list-save": "node interface/new-list.js true",
+    "compare-files": "node interface/compare-files.js",
+    "compare-remote": "node interface/compare-remote.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
