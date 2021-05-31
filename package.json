@@ -8,6 +8,7 @@
     "new-list-save": "node interface/new-list.js true",
     "compare-files": "node interface/compare-files.js",
     "compare-remote": "node interface/compare-remote.js",
+    "gen-rotation-plan": "node interface/gen-rotation-plan.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

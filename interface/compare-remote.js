@@ -3,7 +3,8 @@
  */
 const path = require('path')
 const GetInitialListBackend = require('../lib/getInitialListBackend')
-const CompareLists = require('../lib/compareLists')
+const CompareLists = require('../lib/compareTwoLists')
+const GenTwoList = require('../lib/GenTwoList')
 const { getLatestData } = require('../lib/utils')
 
 const args = process.argv.slice(2);
@@ -18,5 +19,10 @@ const oldFile = path.join(__dirname, '..', 'data', file)
 new GetInitialListBackend({ saveToFile: false })
     .run()
     .then((newContent) => {
-      new CompareLists({ newContent, oldFile }).run()
+      new GenTwoList({
+        oldFile,
+        newContent
+      }).run().then(([oldItems, newItems]) => {
+        new CompareLists({ newItems, oldItems }).run()
+      })
     })
