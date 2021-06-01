@@ -17,7 +17,7 @@ if (!file) {
 }
 const oldFile = path.join(__dirname, '..', 'data', file)
 
-new GetInitialListBackend({ saveToFile: false })
+new GetInitialListBackend({ saveToFile: true })
     .run()
     .then((newContent) => {
       new GenTwoList({ newContent, oldFile })
