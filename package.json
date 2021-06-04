@@ -9,6 +9,7 @@
     "compare-files": "node interface/compare-files.js",
     "compare-remote": "node interface/compare-remote.js",
     "gen-rotation-plan": "node interface/gen-rotation-plan.js",
+    "gen-rotation-plan-report": "node interface/gen-rotation-plan.js -g",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,8 +19,11 @@
     "axios": "^0.21.1",
     "chalk": "^4.1.1",
     "console-table-printer": "^2.9.0",
+    "csv2md": "^1.1.0",
     "csvtojson": "^2.0.10",
     "form-data": "^4.0.0",
-    "moment": "^2.29.1"
+    "handlebars": "^4.7.7",
+    "moment": "^2.29.1",
+    "yargs": "^17.0.1"
   }
 }

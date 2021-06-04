@@ -1,0 +1,27 @@
+- 轮动参考数据
+
+  - 中间价 {{ midPrice }}
+  - 双低均值 {{ dblowAvg }}
+  - 双低合格数 {{ dblowValidSize }}
+
+- 买卖
+
+  - 卖出
+  {{#each sellItems}}
+    - {{ this }}
+  {{/each}}
+
+  - 买入
+  {{#each buyItems}}
+    - {{ this }}
+  {{/each}}
+
+- 双低筛选名单
+
+  - 新名单 {{ newDataDate }}
+
+{{ newDataContent }}
+
+  - 旧名单 {{ oldDataDate }}
+
+{{ oldDataContent }}

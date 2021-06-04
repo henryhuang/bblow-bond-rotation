@@ -18,7 +18,7 @@ const oldFile = path.join(__dirname, '..', 'data', file)
 
 new GetInitialListBackend({ saveToFile: false })
     .run()
-    .then((newContent) => {
+    .then(({csvContent: newContent}) => {
       new GenTwoList({
         oldFile,
         newContent
