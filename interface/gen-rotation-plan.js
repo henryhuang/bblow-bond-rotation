@@ -7,7 +7,7 @@ const GenRotationPlan = require('../lib/genRotationPlan')
 const GenRotationPlanFile = require('../lib/genRotationPlanFile')
 const GenTwoList = require('../lib/genTwoList')
 const GetInitialListBackend = require('../lib/getInitialListBackend')
-const { getLatestData, loadArgs } = require('../lib/utils')
+const { getLatestData, loadArgs, buildCell } = require('../lib/utils')
 
 const args = loadArgs()
 
@@ -21,7 +21,7 @@ if (!file) {
 const oldFile = path.join(__dirname, '..', 'data', file)
 
 const generate = async () => {
-  const {midPrice, csvContent: newContent} = await new GetInitialListBackend({
+  const {midPrice, dblowAvg, dblowValidSize, csvContent: newContent} = await new GetInitialListBackend({
     saveToFile: true
   }).run()
   const [oldItems, newItems] = await new GenTwoList({
@@ -36,13 +36,14 @@ const generate = async () => {
     addList: newAdded
   }).run()
   if (genReportFile) {
+    const sellItemSimples = sellItems.map(s => buildCell(s))
+    const buyItemSimples = buyItems.map(s => buildCell(s))
     new GenRotationPlanFile({
-      // TODO
       midPrice,
-      dblowAvg : 0,
-      dblowValidSize : 0,
-      sellItems,
-      buyItems,
+      dblowAvg,
+      dblowValidSize,
+      sellItems: sellItemSimples,
+      buyItems: buyItemSimples,
       oldDataCsvFile: oldFile,
       newDataCsvContent: newContent
     }).gen()
