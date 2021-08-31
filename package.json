@@ -12,7 +12,9 @@
     "gen-rotation-plan-debug": "node interface/gen-rotation-plan.js -d",
     "gen-rotation-plan-report": "node interface/gen-rotation-plan.js -g",
     "find-buys": "node interface/find-buy-items.js -d",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "1":  "npm run gen-rotation-plan-report",
+    "list": "npm run list-current"
   },
   "keywords": [],
   "author": "",
