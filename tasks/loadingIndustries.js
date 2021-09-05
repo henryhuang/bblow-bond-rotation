@@ -4,7 +4,7 @@
 const axios = require('axios')
 const fs = require('fs')
 const path = require('path')
-const IndustryFetcher = require('./lib/industryFetcher')
+const IndustryFetcher = require('../lib/industryFetcher')
 
 const date = new Date()
 const url = `https://www.jisilu.cn/data/cbnew/cb_list/?___jsl=LST___t=${date.getTime()}`

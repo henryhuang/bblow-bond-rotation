@@ -2,7 +2,7 @@
  * Created by Henry Huang on 2021/8/31.
  */
 const csvtojson = require('csvtojson')
-const industries = require('./data/industry.json')
+const industries = require('../data/industry.json')
 const fs = require('fs')
 
 const file = '/Users/henry/dev/workspace/github/convertible-bond/data/2021-08-31.csv'
