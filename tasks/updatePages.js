@@ -8,7 +8,7 @@ const Handlebars = require("handlebars")
 const { csv2md } = require('csv2md')
 
 const srcFolder = path.join(__dirname, '..', 'data')
-const destFolder = path.join(__dirname, '..', 'pages')
+const destFolder = path.join(__dirname, '..', 'docs')
 
 const templateFile = path.join(__dirname, 'page-template.handlebars')
 const template = Handlebars.compile(fs.readFileSync(templateFile).toString());
