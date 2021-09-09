@@ -4,6 +4,7 @@
   "description": "",
   "main": "tasks/index.js",
   "scripts": {
+    "1": "npm run gen-rotation-plan-report",
     "new-list": "node interface/new-list.js",
     "new-list-save": "node interface/new-list.js true",
     "compare-files": "node interface/compare-files.js",
@@ -13,7 +14,6 @@
     "gen-rotation-plan-report": "node interface/gen-rotation-plan.js -g",
     "find-buys": "node interface/find-buy-items.js -d",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "1":  "npm run gen-rotation-plan-report",
     "list": "npm run list-current",
     "pages": "node ./tasks/updatePages.js"
   },
