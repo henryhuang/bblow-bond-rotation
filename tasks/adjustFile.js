@@ -9,9 +9,9 @@ const file = '/Users/henry/dev/workspace/github/convertible-bond/data/2021-08-31
 csvtojson()
     .fromFile(file)
     .then((jsonObj)=>{
-      let str = '代码, 转债名称, 行业, 现价, 溢价率, 剩余规模, 双低'
+      let str = '代码, 转债名称, 行业, 评级, 现价, 溢价率, 剩余规模, 双低'
       jsonObj.forEach(j => {
-        str = str + '\n' + `${j['代码']}, ${j['转债名称']}, ${industries[j['代码']]}, ${j['现价']}, ${j['溢价率']}, ${j['剩余规模']}, ${j['双低']}`
+        str = str + '\n' + `${j['代码']}, ${j['转债名称']}, ${industries[j['代码']]}, ${j['评级']}, ${j['现价']}, ${j['溢价率']}, ${j['剩余规模']}, ${j['双低']}`
       })
       console.log(str)
       fs.writeFileSync(file, str)
