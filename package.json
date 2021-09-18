@@ -13,13 +13,15 @@
     "gen-rotation-plan-debug": "node interface/gen-rotation-plan.js -d",
     "gen-rotation-plan-report": "node interface/gen-rotation-plan.js -g",
     "find-buys": "node interface/find-buy-items.js -d",
+    "index": "node ./lib/service/CBIndex.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "list": "npm run list-current",
-    "pages": "node ./tasks/updatePages.js"
+    "pages": "node ./tasks/updatePages.js",
+    "industries": "node ./tasks/loadingIndustries.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@octokit/rest": "^18.9.0",
     "axios": "^0.21.1",
