@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+
+        <div id="index-container" style="width: 80%; margin-left: 10%; margin-top: 10px">
+            <div id="cb_index" class="cbindex_quote_info" style="margin-left:0px;margin-right:20px;width:1200px;display:inline-block;font-weight:bolder;">当前指数：<span style="color:red;" class="margin_right_20"><span class="margin_right_20">1839.334↑</span><span title="涨跌" class="margin_right_20">+30.430</span><span title="涨幅">+1.680%</span></span>成交额 <span title="成交额" class="margin_right_20">739.92亿元</span>平均价格 <span title="平均价格" class="margin_right_20">136.276</span>转股溢价率 <span title="平均转股溢价率" class="margin_right_20">35.22%</span>到期收益率 <span title="平均到期收益率" class="margin_right_20">-2.73%</span>中位数价格 <span class="margin_right_20">118.808</span>换手率 <span>12.01%</span><br><span style="padding-left:70px;font-size:12px;font-weight:normal;">&lt;90 0个90~100 9个 <span style="color:#fc0f3a;" class="margin_right_30">↑+0.58%</span>100~110 88个 <span style="color:#fc0f3a;" class="margin_right_30">↑+0.40%</span>110~120 103个 <span style="color:#fc0f3a;" class="margin_right_30">↑+0.72%</span>120~130 62个 <span style="color:#fc0f3a;" class="margin_right_30">↑+1.83%</span>≥130 111个 <span style="color:#fc0f3a;" class="margin_right_30">↑+3.59%</span></span></div>
+        </div>
+        <div id="container" style="height: 80%; width: 80%; margin-left: 10%; top: 5%"></div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.1/dist/echarts.min.js"></script>
+
+        <script type="text/javascript" src="./data.js"></script>
+        <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+
+        var option;
+
+
+        option = {
+            title: {
+                text: '可转债双低策略指标图'
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params) {
+                    let tip = params[0].name
+                    params.forEach(p => {
+                        if (p.seriesName === '平均溢价') {
+                            tip = tip + `<br>${p.seriesName}: ${p.value}%`
+                        } else {
+                            tip = tip + `<br>${p.seriesName}: ${p.value + 100}`
+                        }
+                    })
+                    return tip
+                }
+            },
+            legend: {
+                data: ['平均价格', '平均双低', '平均溢价']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: metricsData.dates
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '平均价格',
+                    type: 'line',
+                    data: metricsData.avgPrices
+                },
+                {
+                    name: '平均双低',
+                    type: 'line',
+                    data: metricsData.avgDBlows
+                },
+                {
+                    name: '平均溢价',
+                    type: 'line',
+                    data: metricsData.avgPremiumRts
+                }
+            ]
+        };
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+
+        </script>
+    </body>
+</html>
+    

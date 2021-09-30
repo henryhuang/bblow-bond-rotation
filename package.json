@@ -17,7 +17,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "list": "npm run list-current",
     "pages": "node ./tasks/updatePages.js",
-    "industries": "node ./tasks/loadingIndustries.js"
+    "industries": "node ./tasks/loadingIndustries.js",
+    "metrics": "node interface/metrics.js",
+    "last-plan-metrics": "node interface/last-plan-metrics.js"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +27,7 @@
   "dependencies": {
     "@octokit/rest": "^18.9.0",
     "axios": "^0.21.1",
+    "better-opn": "^3.0.0",
     "chalk": "^4.1.1",
     "cheerio": "^1.0.0-rc.10",
     "console-table-printer": "^2.9.0",
