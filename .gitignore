@@ -8,3 +8,4 @@ env.json
 /.idea/modules.xml
 /.idea/vcs.xml
 cb_index.json
+.user_config.json

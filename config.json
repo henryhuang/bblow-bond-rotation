@@ -1,3 +1,6 @@
 {
-  "signOutDblowHighestValue": 130
+  "signOutDblowHighestValue": 130,
+  "pickRate": 0.1,
+  "maxPremiumRt": 21,
+  "maxPickCount": 20
 }
