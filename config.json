@@ -2,5 +2,8 @@
   "signOutDblowHighestValue": 130,
   "pickRate": 0.1,
   "maxPremiumRt": 21,
-  "maxPickCount": 20
+  "maxPickCount": 20,
+  "bondStockGap": 5,
+  "endPointOld": "https://www.jisilu.cn/data/cbnew/cb_list/?___jsl=LST___t=",
+  "endPoint": "https://www.jisilu.cn/webapi/cb/list_new/"
 }

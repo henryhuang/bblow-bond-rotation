@@ -18,11 +18,13 @@ class SessionLoader {
             const userNameSelector = By.css('#user_menu > span');
             await driver.wait(until.elementTextIs(driver.wait(until.elementLocated(userNameSelector)), userTitle), 10000);
             const cookies = await driver.manage().getCookies();
+            const selected = []
             cookies.forEach(cookie => {
-                if (cookie.name === 'kbzw__Session') {
-                    session = cookie.value
+                if (cookie.domain.indexOf('.jisilu.cn') > -1) {
+                    selected.push(`${cookie.name}=${cookie.value}`)
                 }
             })
+            session = selected.join(";")
         } finally {
             await driver.quit();
         }

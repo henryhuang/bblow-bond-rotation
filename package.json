@@ -20,7 +20,8 @@
     "industries": "node ./tasks/loadingIndustries.js",
     "metrics": "node interface/metrics.js",
     "list-items": "node interface/list-items.js",
-    "last-plan-metrics": "node interface/last-plan-metrics.js"
+    "last-plan-metrics": "node interface/last-plan-metrics.js",
+    "find-gaps": "node interface/find-gaps.js"
   },
   "keywords": [],
   "author": "",
